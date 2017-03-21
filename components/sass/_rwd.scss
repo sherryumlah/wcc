@@ -1,0 +1,20 @@
+// _rwd: Responsive Web Design
+// ================================
+// See respond-to mixin for media queries
+$breaks: (
+  ( gigantic,       110.562em ), // 1769px
+  ( jumbo,          105em     ), // 1680px
+  ( full,           90em      ), // 1440px
+  ( grid,           81.25em   ), // 1300px
+  ( xlarge,         75em      ), // 1200px
+  ( landscape-pre,  68em      ), // 1088px
+  ( landscape,      64em      ), // 1024px
+  ( landscape-sub,  63.75em   ), // 1020px
+  ( large,          55.875em  ), // 894px
+  ( portrait,       48em      ), // 768px
+  ( portrait-sub,   47.5em    ), // 760px
+  ( medium,         42.5em    ), // 680px
+  ( medium-sub,     31.875em  ), // 510px
+  ( small,          30em      ), // 480px
+  ( xsmall,         23.75em   )  // 380px
+);

@@ -1,0 +1,154 @@
+// _components
+// =================
+
+
+// LISTS
+.list--horz {
+  li {
+    float:    left;
+    padding:  $padding--small;
+  }
+}
+
+.list--btns {
+  list-style-type: none;
+
+  li:not(:last-child) { margin-right: $margin--small; }
+}
+
+
+// LINKS
+
+.link {
+  cursor:          pointer;
+  text-decoration: none;
+}
+
+.link--light {
+  border-bottom: 1px dotted $link--border--color;
+  color:         $link--color;
+
+  &:hover { color: $link--color--hover; }
+}
+
+// MODALS
+
+.modal__wrapper {
+  bottom:     0;
+  left:       0;
+  opacity:    0;
+  position:   fixed;
+  right:      0;
+  text-align: center;
+  top:        0;
+  visibility: hidden;
+  z-index:    10;
+}
+
+.modal {
+  border-radius: 8px;
+  left:          50%;
+  max-height:    90%;
+  max-width:     90%;
+  overflow-y:    auto;
+  padding:       $padding--modal;
+  position:      fixed;
+  top:           50%;
+  transform:     translate(-50%, -50%);
+  width:         700px;
+}
+
+.modal--gallery {
+  background-color: transparent;
+  box-shadow: none;
+}
+.modal--standard {
+  @include box-shadow(0px, 1px, 58px, -2px, rgba(0,0,0,0.75));
+
+  background-color: $modal--background--color;
+}
+
+.modal__btn { margin: 0 auto; }
+
+.gallery {
+  .modal__btn {
+    top: 90%;
+    position: fixed;
+    left: 40%;
+  }
+}
+
+.player {
+  margin:        0 auto;
+  margin-top:    $margin--medium;
+  margin-bottom: $margin--medium;
+}
+
+
+// FORMS
+
+.form__field,
+.form__textarea {
+  @include font-size($font--size--small);
+  padding: $padding--xsmall;
+}
+
+.form__field {
+  height: 30px;
+  width: 100%;
+}
+
+.form__group {
+  display: block;
+  border:  none;
+  padding: $padding--small 0px;
+}
+
+.form__label { color: $form--label--color; }
+
+.form__reset,
+.form__submit { margin: $margin--medium $margin--small; }
+
+.form__textarea {
+  height: 120px;
+  width: 100%;
+}
+
+// Responsive
+@include respond-to(xlarge) {
+  .list--btns {
+    li:not(:last-child) { margin-right: $margin--xsmall; }
+  }
+}
+
+@include respond-to(landscape) {
+  .list--horz.list--btns {
+    li { float: none; }
+
+    li:not(:last-of-type){ margin-bottom: $margin--small; }
+
+    text-align: center;
+  }
+}
+
+@include respond-to(landscape-sub){
+  .form__reset,
+  .form__submit { display: block; }
+  .form__reset  { margin: 0; }
+  .form__submit { margin: $margin--medium 0 $margin--small 0; }
+}
+
+@include respond-to(portrait-sub) {
+  .nav__list {
+    li:not(:last-of-type){ margin-right: $margin--small; }
+  }
+  .list--horz {
+    &.list--btns { li { float: left; } }
+  }
+}
+
+@include respond-to(medium-sub) {
+  .list--horz.list--btns {
+    li { float: none; }
+  }
+}

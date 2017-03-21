@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wolf Creek Carvings</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body--base">
+  <div class="container" data-screen="true">
+    <header class="header">
+      <div class="header__logo ">
+        <img src="images/illustrations/wolf_vector.svg" onerror="this.onerror=null; this.src='images/illustrations/wolf_vector.png" alt="Image of wolf howling" class="img--wolf">
+        <p class="header__logoText">
+          <a href="index.html" class="header__link link">Wolf Creek Carvings</a>
+        </p>
+      </div>
+      <div class="header__nav">
+        <nav class="nav">
+          <ul class="nav__list list--horz">
+            <li><a href="artist.html" class="header__link link">About the Artist</a></li>
+            <li><a href="gallery.html" class="header__link link">Gallery</a></li>
+            <li><a href="contact.html" class="header__link link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header__social align--center">
+          <a href="https://www.facebook.com/WolfCreekCarvings/" target="_blank">
+            <img src="images/logos/facebook.png" class="header__socialFacebook" alt="Find us on Facebook">
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section section--full section--middled section--padded section--image section--owl">
+      <article class="article article--padded article--right article--shader">
+        <h2 class="h2">Contact</h2>
+        <h4 class="h4">We would love to hear from you</h4>
+        <p class="font--color--light">
+          Interested in purchasing a carving by Robin? Have an idea for a stump in your yard? Want to hire Robin for your event? Reach out!
+        </p>
+
+        <form method="post" action="sendmail.php">
+          <fieldset class="form__group">
+            <label for="name" class="form__label">Name:</label><br>
+            <input type="text" class="form__field" id="name" name="name" tabindex="1" required aria-required="true">
+          </fieldset>
+
+          <fieldset class="form__group">
+            <label for="email" class="form__label">E-mail:</label><br>
+            <input type="email" name="email" class="form__field" id="email" tabindex="2" required aria-required="true">
+          </fieldset>
+
+          <fieldset class="form__group">
+            <label for="subject" class="form__label">Subject:</label><br>
+            <input type="text" class="form__field" name="subject" id="subject" tabindex="3" required aria-required="true">
+          </fieldset>
+
+          <fieldset class="form__group">
+            <label for="message" class="form__label">Message:</label><br>
+            <textarea class="form__textarea" id="message" name="message" tabindex="4" required aria-required="true"></textarea>
+          </fieldset>
+
+          <input type="submit" name="submit" value="Send Message" class="form__submit btn btn--primary" tabindex="5">
+
+          <input type="reset" name="reset" value="Clear Form" class="form__reset btn btn--secondary" tabindex="6">
+
+        </form>
+      </article>
+    </section>
+
+
+    <footer class="footer">
+      <div class="footer__copyright footer--padded">
+        <p>
+          &copy; Copyright 2003 - <span data-copyright="true">2017</span> Robin Deruchie. All rights reserved
+        </p>
+      </div>
+      <div class="footer__address footer--padded">
+        <p>
+          1058 Jacques Bay Road, Cloyne, Ontario, Canada K0H1K0 | Viewings by appointment only. <span class="nowrap">PH: (613) 336-2137</span>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+// _mixins
+// ========
+
+
+@mixin anim($animation, $duration, $timing, $iteration ){
+  -webkit-animation: $animation $duration $timing $iteration;
+  -moz-animation: $animation $duration $timing $iteration;
+  -ms-animation: $animation $duration $timing $iteration;
+  animation: $animation $duration $timing $iteration;
+}
+
+@mixin animTransform($transformation){
+  -ms-transform: $transformation; /* IE 9 */
+  -webkit-transform: $transformation; /* Chrome, Safari, Opera */
+  transform: $transformation;
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin box-shadow($h-shadow, $v-shadow, $blur, $spread, $shadowColor) {
+  box-shadow:         $h-shadow $v-shadow $blur $spread $shadowColor;
+  -moz-box-shadow:    $h-shadow $v-shadow $blur $spread $shadowColor;
+  -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $shadowColor;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin flex($alignment) {
+  -webkit-align-items: $alignment;
+  -ms-flex-align: $alignment;
+  align-items: $alignment;
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+// REM FONTS
+/* Convert font size to rem (relative to the html element)
+No support for rem units in IE8 and below. Fall back to px when rem isn’t supported */
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+// Interactive Elements
+
+@mixin button($bgColor, $borderColor) {
+  background: $bgColor;
+  border: 1px solid $borderColor;
+  &:hover {
+    border-color: darken($borderColor, 25%);
+    background: darken($bgColor, 30%);
+    transition: all 0.5s ease;
+  }
+}
+
+
+// RESPONSIVE
+
+@mixin respond-to($break) {
+  // See _rwd for breakpoint vars
+  $match: $break;
+
+  @each $item in $breaks {
+    @if $break == nth($item, 1) {
+      $width: nth($item, 2);
+
+      $match: "max-width: " + $width;
+    }
+  }
+
+  @media ($match) {
+    @content;
+  }
+}

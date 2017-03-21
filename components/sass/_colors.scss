@@ -1,0 +1,71 @@
+// _colors.scss
+// =================
+
+$fuscous-gray:              #50514f;
+$heathered-gray:            #b8b08d;
+$green-smoke:               #95a472;
+$spanish-white:             #f8f4e3;
+$wedgewood:                 #4f7cac;
+$white:                     #ffffff;
+$black:                     #000000;
+$yellow-metal:              #7d5f3b;
+$blue-zodiac:               #123050;
+$millbrook:                 #614c32;
+
+
+// Color Scheme Vars
+$color--colorless:          $white;
+$color--light:              $spanish-white;
+$color--dark:               $black;
+$color--base:               $blue-zodiac;
+$color--primary:            $heathered-gray;
+$color--secondary:          $millbrook;
+$color--tertiary:           $green-smoke;
+$color--quarternary:        $yellow-metal;
+$color--accent:             $wedgewood;
+
+// Element Colors
+$html--background:          $color--colorless;
+$body--accent:              $color--accent;
+$body--quarternary:         $color--quarternary;
+$body--base:                $color--base;
+$header--background:        $color--base;
+$header--border--color:     $color--quarternary;
+$header--link--color:       $color--colorless;
+$header--link--hover:       $color--primary;
+$nav--background:           $color--base;
+$nav--color:                $color--light;
+$footer--background--color: $color--secondary;
+$footer--border--color:     $color--quarternary;
+$footer--color:             $color--light;
+$figure--border--light:     $color--light;
+$btn--color:                $color--colorless;
+$btn--background--color:    $color--secondary;
+$btn--border--color:        $color--colorless;
+$btn2--color:               $color--colorless;
+$btn2--background--color:   $color--primary;
+$btn2--border--color:       $color--colorless;
+$header--light:             $color--colorless;
+$header--dark:              $color--tertiary;
+$header--accent:            $color--primary;
+$link--color:               $color--light;
+$link--color--hover:        $color--tertiary;
+$link--border--color:       $color--light;
+$modal--background--color:  $color--tertiary;
+$form--label--color:        $color--light;
+
+.section--color--accent      { background-color: $color--accent; }
+.section--color--light       { background-color: $color--light; }
+.section--color--dark        { background-color: $color--dark; }
+.section--color--primary     { background-color: $color--primary; }
+.section--color--tertiary    { background-color: $color--tertiary; }
+.section--color--quarternary { background-color: $color--quarternary; }
+.section--color--base        { background-color: $color--base; }
+
+.font--color--colorless   { color: $color--colorless; }
+.font--color--light       { color: $color--light; }
+.font--color--dark        { color: $color--dark; }
+.font--color--accent      { color: $color--accent; }
+.font--color--primary     { color: $color--primary; }
+.font--color--tertiary    { color: $color--tertiary; }
+.font--color--base        { color: $color--base; }

@@ -1,0 +1,120 @@
+// _typography.scss
+// =================
+
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif|Kaushan+Script|Muli');
+
+$font--serif:      'Droid Serif', serif;
+$font--sans-serif: 'Muli', sans-serif;
+$font--cursive:    'Kaushan Script', cursive;
+
+$font--size--xxsmall: 12px;
+$font--size--xsmall:  14px;
+$font--size--small:   16px;
+$font--size--default: 28px;
+$font--size--medium:  30px;
+$font--size--large:   44px;
+$font--size--xlarge:  60px;
+
+
+// HEADERS
+.h1, .h2 { color: $header--light; }
+
+.h2, .h3, .h4 { font-family: $font--serif; }
+
+.h3, .h5 { color: $header--dark; }
+
+.h1 {
+  @include font-size ($font--size--xlarge);
+
+  font-family: $font--cursive;
+}
+
+.h2 { @include font-size($font--size--large); }
+
+.h3 { @include font-size($font--size--medium); }
+
+.h4 {
+  @include font-size($font--size--default);
+
+  color: $header--accent;
+}
+
+.h5 {
+  @include font-size($font--size--small);
+
+  font-family:  $font--sans-serif;
+}
+
+
+// Quotations
+.quote {
+  margin:     0 auto;
+  text-align: center;
+  width:      70%;
+}
+
+.quote__author {
+  @include clearfix;
+  @include font-size($font--size--small);
+
+  float:        left;
+  font-family:  $font--sans-serif;
+  font-variant: small-caps;
+  width:        100%;
+
+  &:before { content: "~ "; }
+}
+
+q {
+  quotes: "“ " " ”" "‘ " " ’";
+}
+
+q {
+  &.quote__text--start {
+    &:before { content: open-quote; }
+    &:after  { content: ''; }
+  }
+
+  &.quote__text--end {
+    &:before { content: ''; }
+    &:after  { content: close-quote; }
+  }
+}
+
+.quote__text {
+  @include font-size($font--size--large);
+
+  font-family: $font--cursive;
+}
+
+
+// TEXT ALIGNMENT
+.align--center { text-align: center; }
+.align--left   { text-align: left; }
+.align--right  { text-align: right; }
+
+.nowrap { white-space: nowrap; }
+
+
+// RESPONSIVE
+
+@include respond-to(xlarge){
+  .quote { width: 100%; }
+}
+
+@include respond-to(landscape) {
+  .h1           { @include font-size($font--size--large); }
+  .h2           { @include font-size($font--size--medium); }
+  .h3, .h4      { @include font-size($font--size--default); }
+
+  .quote__text  { @include font-size($font--size--medium); }
+}
+
+@include respond-to(portrait-sub) {
+  .h1, .h2           { @include font-size($font--size--default); }
+  .h3, .h4           { @include font-size($font--size--small); }
+}
+
+@include respond-to(medium) {
+  .quote { width: 80%; }
+}

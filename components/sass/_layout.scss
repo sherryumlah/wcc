@@ -1,0 +1,197 @@
+// _layout.scss
+// =================
+
+// SPACERS
+
+$spacer--xsmall:   5px;
+$spacer--small:    10px;
+$spacer--default:  20px;
+$spacer--medium:   40px;
+$spacer--medlarge: 60px;
+$spacer--large:    80px;
+$spacer--xlarge:   120px;
+$spacer--xxlarge:  150px;
+
+
+// PADDING
+
+$padding--xsmall:   $spacer--xsmall;
+$padding--small:    $spacer--small;
+$padding--default:  $spacer--default;
+$padding--medium:   $spacer--medium;
+$padding--medlarge: $spacer--medlarge;
+$padding--large:    $spacer--large;
+$padding--xlarge:   $spacer--xlarge;
+
+$padding--modal:    $spacer--default;
+
+.section--constant,
+.section--padded { padding: $padding--large 0px; }
+
+.footer--padded,
+.figure--padded { padding: 0px $padding--large; }
+
+.article--padded { padding: $padding--large; }
+
+.article--padless,
+.section--padless { padding: 0; }
+
+
+// MARGINS
+
+$margin--xsmall:   $spacer--xsmall;
+$margin--small:    $spacer--small;
+$margin--default:  $spacer--default;
+$margin--medium:   $spacer--medium;
+$margin--medlarge: $spacer--medlarge;
+$margin--large:    $spacer--large;
+$margin--xlarge:   $spacer--xlarge;
+
+.margin--top--small       { margin-top: $margin--small; }
+.margin--top--medium      { margin-top: $margin--medium; }
+.margin--top--default     { margin-top: $margin--default; }
+.margin--top--large       { margin-top: $margin--large; }
+.margin--bottom--small    { margin-bottom: $margin--small; }
+.margin--bottom--medium   { margin-bottom: $margin--medium; }
+.margin--bottom--default  { margin-bottom: $margin--default; }
+.margin--bottom--large    { margin-bottom: $margin--large; }
+.section--margin--small   { margin: $margin--small 0; }
+.section--margin--medium  { margin: $margin--medium 0; }
+.section--margin--default { margin: $margin--default 0; }
+.section--margin--large   { margin: $margin--large 0; }
+
+
+.section {
+  @include clearfix;
+}
+
+.section:first-of-type { margin-top: $margin--xlarge; }
+.section:last-of-type  { margin-bottom: $padding--medlarge; }
+
+.section--full    { width: 100%; }
+.section--half    { width: 40%; }
+.section--third   { width: 33.333%; }
+.section--quarter { width: 25%; }
+.section--tenth   { width: 10%; }
+
+.section--gallery {
+  @include flex(center);
+
+  flex-wrap: wrap;
+}
+
+.section--middled { @include flex(center); }
+.section--top     { @include flex(top); }
+
+
+// ARTICLES
+
+.article p {
+  line-height: 1.85em;
+  margin:      $margin--small 0;
+  text-align:  justify;
+}
+
+.article--full    { width: 100%; }
+.article--gallery {
+  @include flex(center);
+
+  flex-wrap: wrap;
+}
+
+.article--half    { flex-basis: 50%; }
+
+.article--left {
+  border-bottom-right-radius: 20px;
+  border-top-right-radius:    20px;
+}
+.article--right {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius:    20px;
+  margin-left:               50%;
+}
+
+.article--shader { background-color: rgba(18,48,80, 0.8); }
+
+
+// POSITIONING
+
+.float--left  { float: left; }
+.float--right { float: right; }
+.centered     { margin: 0 auto; }
+
+
+// RESPONSIVE
+
+@include respond-to(xlarge) {
+  .article       { text-align: left; }
+  .article p     { text-align: justify; }
+  .article--half { flex-basis: 48%; }
+
+  .article--left,
+  .article--right { border-radius: 0px; }
+  .article--right { margin-left: 48%; }
+
+  .article--padded,
+  .figure--padded,
+  .footer--padded { padding: $padding--medlarge; }
+
+  .section--middled { @include flex(stretch); }
+
+  .section--padded { padding: 0px; }
+}
+
+@include respond-to(portrait){
+  .article--padded,
+  .figure--padded,
+  .section--padded { padding: $padding--medium; }
+}
+
+@include respond-to(portrait-sub) {
+  .article p       { line-height: 1.5em; }
+  .article--half   { flex-basis: 100%; }
+  .article--right  { margin-left: 0%; }
+  .article--shader { background-color: rgba(18, 48, 80, 1); }
+
+  .section:first-of-type { margin-top: 200px; }
+
+  .section:last-of-type {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .section--constant { padding: $padding--medium 0px; }
+
+  .section--middled {
+    @include flex(flex-end);
+    flex-direction: row;
+  }
+
+  .section--padded {
+    .article { margin-top: 400px; }
+    padding: 0px;
+  }
+}
+
+@include respond-to(medium){
+  .section--padded {
+    .article { margin-top: 300px; }
+  }
+}
+
+@include respond-to(medium-sub){
+  .section--padded {
+    .article { margin-top: 250px; }
+  }
+}
+
+@include respond-to(xsmall){
+  .article p { text-align: left; }
+
+  .article--padded,
+  .figure--padded { padding: 30px; }
+
+  .section--constant { padding: 40px 30px; }
+
+  .section--padded { .article { margin-top: 180px; } }
+}

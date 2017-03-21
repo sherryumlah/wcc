@@ -1,0 +1,171 @@
+// _imagery.scss
+// ==============
+
+
+// GALLERY
+
+
+.figure:not(.figure--gallery) {
+  img {
+    border:    1px solid $figure--border--light;
+    max-width: 400px;
+    margin:    0 auto;
+    width:     100%;
+  }
+}
+
+.figure--gallery {
+  flex-basis: 18%;
+  margin: $margin--small;
+  img { border: 1px solid $figure--border--light; }
+}
+
+.figure--right {
+  float: left;
+  width: 50%;
+}
+
+
+// PHOTOS
+
+.img--wolf { max-height: 110px; }
+
+// BUTTONS
+
+.btn {
+  @include font-size($font--size--small);
+
+  border-radius:   25px;
+  color:           $btn--color;
+  cursor:          pointer;
+  padding:         $padding--small $padding--medium;
+  text-decoration: none;
+  width:           fit-content;
+}
+
+.btn--primary   { @include button($btn--background--color, $btn--border--color); }
+.btn--secondary { @include button($btn2--background--color, $btn2--border--color); }
+
+
+// Section Backgrounds
+
+.section--bears { background-image: url('/images/backgrounds/bg-bears.jpg'); }
+
+.section--chainsaw {
+  background-image: url('/images/backgrounds/bg-chainsaw.jpg');
+  overflow:         hidden;
+}
+
+.section--chainsaw-dust { background-image: url('/images/backgrounds/bg-chainsaw-dust.jpg'); }
+.section--greenery      { background-image: url('/images/backgrounds/bg-green-gradient.jpg'); }
+.section--image         { background-size: cover; }
+.section--shadowed      { @include box-shadow(0px, 1px, 58px, -2px, rgba(0,0,0,0.75)); }
+.section--owl           { background-image: url('/images/backgrounds/bg-owl.jpg'); }
+
+.section--wolf {
+  background-image:    url('/images/backgrounds/bg-wolf.jpg');
+  background-position: 50% 50%;
+}
+
+// Animation
+
+@include keyframes(sawdust) {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+    opacity: 0.5;
+  }
+  25% {
+    @include animTransform(rotate(180deg));
+  }
+  50% {
+    background-position: 500px 500px, 100px 200px, -100px 150px;
+    opacity: 1;
+  }
+  75% {
+    @include animTransform(rotate(360deg));
+
+    background-position: 500px 500px, 100px 200px, -100px 150px;
+    opacity: 1;
+  }
+  100% {
+    background-position: 500px 1000px, 0 400px, 0 300px;
+    opacity: 0.2;
+  }
+}
+
+.anim__holder {
+  width:            100%;
+  height:           600px;
+  left:             0;
+  position:         relative;
+  top:              0;
+  z-index:          1;
+}
+
+.anim__sawdust {
+  @include anim(sawdust, 0.5s, linear, infinite);
+  background:       none;
+  background-image: url('/images/backgrounds/bg-shavings1.png'), url('/images/backgrounds/bg-shavings2.png'), url('/images/backgrounds/bg-shavings3.png');
+  position:         relative;
+  height:           100%;
+}
+
+
+// Responsive
+
+@include respond-to(jumbo)  { .figure--gallery { flex-basis: 18%; } }
+@include respond-to(full)   { .figure--gallery { flex-basis: 31%; } }
+
+
+@include respond-to(xlarge) {
+  .img--wolf      { max-height: 100px; }
+  .section--wolf  { background-position: 100% 50%; }
+}
+
+@include respond-to(landscape-pre) {
+  .figure--gallery {
+    img { max-width: 250px; }
+  }
+}
+
+@include respond-to(landscape-sub) { .anim__holder { display: none; } }
+
+
+@include respond-to(large) {
+  .img--wolf      { max-height: 90px; }
+  .section--wolf  { background-position: 90% 50%; }
+  .figure--gallery {
+    img { max-width: 400px; }
+  }
+}
+
+@include respond-to(portrait) {
+  .figure--gallery {
+    img { max-width: 280px; }
+  }
+
+  .section--wolf  { background-position: 65% 50%; }
+}
+
+@include respond-to(portrait-sub) {
+  .anim__sawdust { display: none; }
+
+  .figure--padded {
+    &.float--right { padding-bottom: 0px; }
+  }
+
+  .modal__wrapper,
+  [data-modal_launch="true"] { display: none; }
+
+  .section--image {
+    background-size:     contain;
+    background-repeat:   no-repeat;
+    background-position: top center;
+  }
+}
+
+@include respond-to(medium) {
+  .article--gallery      { margin-top: $margin--medium; }
+  .figure--gallery       { flex-basis: 100%; }
+  .gallery__instructions { display: none; }
+}
